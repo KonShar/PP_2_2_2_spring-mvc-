@@ -26,12 +26,7 @@ public class CarController {
         this.carService = carService;
     }
 
-//    @GetMapping
-//    public String getCars(HttpServletRequest request, Model model ) {
-//        List<Car> cars = carDAO.getCars().subList(0, count);
-//        model.addAttribute("cars", cars);
-//        return "car/cars";
-//    }
+
     @GetMapping
     public String getCars(Model model) {
         model.addAttribute("cars", carService.getCars());
@@ -42,11 +37,10 @@ public class CarController {
     public String getCars(Integer count, Model model ) {
         if (count == null || count > 5) {
             model.addAttribute("cars", carService.getCars());
-            return "car/cars";
         } else {
             List<Car> cars = carService.getCars().subList(0, count);
             model.addAttribute("cars", cars);
-            return "car/cars";
         }
+        return "car/cars";
     }
 }
