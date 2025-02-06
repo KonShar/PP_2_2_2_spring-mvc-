@@ -35,12 +35,7 @@ public class CarController {
 
     @GetMapping(params = "count")
     public String getCars(Integer count, Model model ) {
-        if (count == null || count > 5) {
-            model.addAttribute("cars", carService.getCars());
-        } else {
-            List<Car> cars = carService.getCars().subList(0, count);
-            model.addAttribute("cars", cars);
-        }
+        model.addAttribute("cars", carService.getCars(count));
         return "car/cars";
     }
 }

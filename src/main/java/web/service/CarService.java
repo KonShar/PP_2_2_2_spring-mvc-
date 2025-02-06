@@ -20,4 +20,12 @@ public class CarService {
     public List<Car> getCars() {
         return carDAO.getCars();
     }
+
+    public List<Car> getCars(Integer count) {
+        if (count == null || count > 5) {
+           return carDAO.getCars();
+        } else {
+            return carDAO.getCars().subList(0, count);
+        }
+    }
 }
