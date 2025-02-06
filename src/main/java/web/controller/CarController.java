@@ -20,7 +20,6 @@ public class CarController {
         this.carService = carService;
     }
 
-
     @GetMapping
     public String getCars(Model model) {
         model.addAttribute("cars", carService.getCars());
